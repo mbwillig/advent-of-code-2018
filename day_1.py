@@ -10,7 +10,6 @@ def day1b():
     with open("input_1_AOC_2018") as fh:
         data = fh.readlines()
 
-    maxiter = 10 ** 8
     done = set([0])
     cumsum = 0
     for x in cycle(data):
