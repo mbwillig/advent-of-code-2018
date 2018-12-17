@@ -37,7 +37,6 @@ def day15a():
             enemy = False
             bestloc = False
 
-
             for drow, dcol in directions:
                 ajacent = (self.row + drow, self.col + dcol)
                 if ajacent in self.enemies:
@@ -104,7 +103,6 @@ def day15a():
                     self.move(moveloc)
                     self.attack_if_possible()
 
-
     def is_empty_spot(loc):
         return (loc not in goblindict) and (loc not in elfdict) and (grid[loc[0]][loc[1]] == ".")
 
@@ -126,7 +124,6 @@ def day15a():
             next = next_next
         #print_distance_map(distdict)
         return distdict
-
 
     for rownr in heightrange:
         for colnr in widthrannge:
@@ -162,8 +159,6 @@ def day15a():
             print("".join(row[1:-2]).rstrip())
         print("")
 
-
-
     def simulate_combat():
         for turn in range(200):
             for character in (list(elfdict.values()) + list(goblindict.values())):
@@ -180,7 +175,6 @@ def day15a():
                             return (turn) * sum([goblin.hp for goblin in goblindict.values()])
                         goblindict[(rownr,colnr)].do_turn()
 
-
     print(simulate_combat())
 
 
@@ -195,8 +189,6 @@ def day15b():
         UP =  (-1,0)
         DOWN = (1,0)
         directions = [UP,LEFT,RIGHT,DOWN]
-
-
 
         def make_grid():
             with open("day_15_AOC.txt") as fh:
@@ -227,7 +219,6 @@ def day15b():
                 minhp = float("inf")
                 enemy = False
                 bestloc = False
-
 
                 for drow, dcol in directions:
                     ajacent = (self.row + drow, self.col + dcol)
@@ -295,7 +286,6 @@ def day15b():
                         self.move(moveloc)
                         self.attack_if_possible()
 
-
         def is_empty_spot(loc):
             return (loc not in goblindict) and (loc not in elfdict) and (grid[loc[0]][loc[1]] == ".")
 
@@ -317,7 +307,6 @@ def day15b():
                 next = next_next
             #print_distance_map(distdict)
             return distdict
-
 
         for rownr in heightrange:
             for colnr in widthrannge:
@@ -353,14 +342,12 @@ def day15b():
                 print("".join(row[1:-2]).rstrip())
             print("")
 
-
-
         def simulate_combat():
             inital_number_of_elves = len(elfdict)
             for turn in range(200):
                 for character in (list(elfdict.values()) + list(goblindict.values())):
                     character.unmoved = True
-                #print_grid()
+
                 for rownr in heightrange:
                     for colnr in widthrannge:
                         if (rownr,colnr) in elfdict:
