@@ -19,4 +19,3 @@ def day1b():
             break
         done.add(cumsum)
 
-    print(len(list(done)))
